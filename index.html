@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Thiệp mời cưới online - Trung Phẩm & Thu Yến - 14/06/2026" />
+    <title>Trung Phẩm ♥ Thu Yến | Thiệp Cưới</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <!-- ========================================================
+       MUSIC PLAYER (floating)
+  ======================================================== -->
+    <div id="music-btn" title="Nhạc nền" onclick="toggleMusic()">♪</div>
+    <audio id="bg-music" loop>
+        <!-- Thêm file nhạc vào: audio/wedding.mp3 -->
+        <source src="audio/wedding.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- ========================================================
+       NAV DOTS
+  ======================================================== -->
+    <nav id="nav-dots" aria-label="Điều hướng trang">
+        <a href="#hero" class="dot active" data-section="hero" title="Trang chủ"></a>
+        <a href="#invitation" class="dot" data-section="invitation" title="Thiệp mời"></a>
+        <a href="#couple" class="dot" data-section="couple" title="Cô dâu & Chú rể"></a>
+        <a href="#album" class="dot" data-section="album" title="Album ảnh"></a>
+        <a href="#love-story" class="dot" data-section="love-story" title="Chuyện tình"></a>
+        <a href="#milestones" class="dot" data-section="milestones" title="Cột mốc"></a>
+        <a href="#events" class="dot" data-section="events" title="Sự kiện"></a>
+        <a href="#guestbook" class="dot" data-section="guestbook" title="Sổ lưu bút"></a>
+    </nav>
+
+    <!-- ========================================================
+       SECTION 1 — HERO (Save the Date)
+  ======================================================== -->
+    <section id="hero" class="section section-hero">
+        <!-- Floral corners -->
+        <div class="floral floral-tl"></div>
+        <div class="floral floral-br"></div>
+
+        <div class="hero-inner">
+            <!-- Left: text -->
+            <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
+                <p class="save-label">SAVE THE DATE</p>
+                <h1 class="script-name">Trung Phẩm</h1>
+                <p class="and-char">&amp;</p>
+                <h1 class="script-name">Thu Yến</h1>
+                <div class="hero-date">
+                    <span>14</span><span class="pipe">|</span>
+                    <span>06</span><span class="pipe">|</span>
+                    <span>2026</span>
+                </div>
+            </div>
+
+            <!-- Right: photos -->
+            <div class="hero-photos" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="arch-frame large">
+                    <img src="images/hero-couple.jpg" alt="Trung Phẩm và Thu Yến" />
+                </div>
+                <div class="arch-frame small">
+                    <img src="images/hero-romantic.jpg" alt="Khoảnh khắc lãng mạn" />
+                </div>
+            </div>
+        </div>
+
+        <div class="gold-divider"></div>
+    </section>
+
+    <!-- ========================================================
+       SECTION 2 — INVITATION (Trân trọng kính mời)
+  ======================================================== -->
+    <section id="invitation" class="section section-invitation">
+        <div class="floral floral-tl"></div>
+        <div class="floral floral-br"></div>
+
+        <div class="container" data-aos="fade-up" data-aos-duration="900">
+            <h2 class="script-heading italic">Trân trọng kính mời</h2>
+            <p class="invite-subtitle">Một lời chúc của bạn chắc chắn sẽ làm cho đám cưới của chúng mình có thêm một
+                niềm hạnh phúc!</p>
+        </div>
+
+        <!-- Date band -->
+        <div class="date-band" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
+            <div class="floral floral-tl sm"></div>
+            <div class="floral floral-br sm"></div>
+
+            <p class="band-time">10:00, Chủ Nhật</p>
+            <div class="band-date">
+                <span>14</span><span class="pipe">|</span>
+                <span>06</span><span class="pipe">|</span>
+                <span>2026</span>
+            </div>
+            <p class="band-location">Điện Máy Toàn, Xã An Trường, Tỉnh Trà Vinh</p>
+
+            <!-- Countdown -->
+            <div id="countdown" class="countdown">
+                <div class="count-box"><span id="days">00</span><small>Ngày</small></div>
+                <div class="count-sep">:</div>
+                <div class="count-box"><span id="hours">00</span><small>Giờ</small></div>
+                <div class="count-sep">:</div>
+                <div class="count-box"><span id="minutes">00</span><small>Phút</small></div>
+                <div class="count-sep">:</div>
+                <div class="count-box"><span id="seconds">00</span><small>Giây</small></div>
+            </div>
+        </div>
+
+        <div class="invite-footer" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <p class="invite-honor">Sự hiện diện của bạn là niềm vinh dự của chúng tôi!</p>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="scrollToGuestbook()">GỬI LỜI CHÚC</button>
+                <button class="btn btn-secondary" onclick="openRsvpModal()">XÁC NHẬN THAM DỰ</button>
+            </div>
+        </div>
+
+        <div class="gold-divider"></div>
+    </section>
+
+    <!-- ========================================================
+       SECTION 3 — COUPLE (Cô dâu & Chú rể)
+  ======================================================== -->
+    <section id="couple" class="section section-couple">
+        <div class="floral floral-tl"></div>
+        <div class="floral floral-br"></div>
+
+        <div class="couple-grid">
+            <!-- Groom -->
+            <div class="couple-card" data-aos="fade-right" data-aos-duration="900">
+                <div class="arch-frame portrait">
+                    <img src="images/groom.jpg" alt="Chú rể Trung Phẩm" />
+                </div>
+                <p class="couple-role">Chú rể</p>
+                <h3 class="script-name couple-name">Trung Phẩm</h3>
+            </div>
+
+            <!-- Decorative heart -->
+            <div class="couple-heart" data-aos="zoom-in" data-aos-delay="300">
+                <span class="heart-icon">♥</span>
+            </div>
+
+            <!-- Bride -->
+            <div class="couple-card" data-aos="fade-left" data-aos-duration="900">
+                <div class="arch-frame portrait">
+                    <img src="images/bride.jpg" alt="Cô dâu Thu Yến" />
+                </div>
+                <p class="couple-role">Cô dâu</p>
+                <h3 class="script-name couple-name">Thu Yến</h3>
+            </div>
+        </div>
+
+        <div class="gold-divider"></div>
+    </section>
+
+    <!-- ========================================================
+       SECTION 4 — ALBUM (Album ảnh cưới)
+  ======================================================== -->
+    <section id="album" class="section section-album">
+        <div class="container" data-aos="fade-up">
+            <h2 class="script-heading">Album ảnh cưới</h2>
+            <div class="heading-ornament"><span></span><span class="diamond">◆</span><span></span></div>
+        </div>
+
+        <div class="gallery-grid" data-aos="fade-up" data-aos-delay="100">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/album-1.jpg" alt="Ảnh cưới 1" loading="lazy" />
+                <div class="gallery-overlay"><span>🔍</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/album-2.jpg" alt="Ảnh cưới 2" loading="lazy" />
+                <div class="gallery-overlay"><span>🔍</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/album-3.jpg" alt="Ảnh cưới 3" loading="lazy" />
+                <div class="gallery-overlay"><span>🔍</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/album-4.jpg" alt="Ảnh cưới 4" loading="lazy" />
+                <div class="gallery-overlay"><span>🔍</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/album-5.jpg" alt="Ảnh cưới 5" loading="lazy" />
+                <div class="gallery-overlay"><span>🔍</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/album-6.jpg" alt="Ảnh cưới 6" loading="lazy" />
+                <div class="gallery-overlay"><span>🔍</span></div>
+            </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+            <button class="lightbox-prev" onclick="event.stopPropagation(); moveLightbox(-1)">‹</button>
+            <img id="lightbox-img" src="" alt="Ảnh phóng to" />
+            <button class="lightbox-next" onclick="event.stopPropagation(); moveLightbox(1)">›</button>
+        </div>
+
+        <div class="gold-divider"></div>
+    </section>
+
+    <!-- ========================================================
+       SECTION 5 — LOVE STORY (Chuyện chúng mình)
+  ======================================================== -->
+    <section id="love-story" class="section section-love-story">
+        <div class="love-story-side-text">LOVE STORY</div>
+        <div class="floral floral-br"></div>
+
+        <div class="love-story-inner">
+            <div class="love-story-text" data-aos="fade-right" data-aos-duration="900">
+                <h2 class="script-heading">Chuyện chúng mình</h2>
+                <div class="heading-ornament"><span></span><span class="diamond">◆</span><span></span></div>
+                <p class="love-story-body">
+                    Chúng tôi rất rất mừng khi chắc chắn sẽ kề khoảnh khắc quan trọng nhất
+                    của cuộc đời mình với gia đình, bạn bè và những người thân yêu.
+                    Ngày cưới không chỉ là sự khởi đầu của hành trình mới mà còn là dịp để
+                    chúng tôi cùng các bạn ôn những kỷ niệm đáng nhớ.
+                </p>
+                <p class="love-story-body italic-text">
+                    Cảm ơn bạn đã luôn đồng hành và yêu thương chúng mình trên chặng đường này.
+                    Hẹn gặp bạn trong ngày trọng đại nhất của cuộc đời chúng mình nhé! 💕
+                </p>
+            </div>
+
+            <div class="love-story-photo" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
+                <div class="arch-frame story">
+                    <img src="images/love-story.jpg" alt="Chuyện tình chúng mình" />
+                </div>
+            </div>
+        </div>
+
+        <div class="gold-divider"></div>
+    </section>
+
+    <!-- ========================================================
+       SECTION 6 — MILESTONES (Cột mốc)
+  ======================================================== -->
+    <section id="milestones" class="section section-milestones">
+        <div class="container" data-aos="fade-up">
+            <h2 class="script-heading">Cột mốc</h2>
+            <div class="heading-ornament"><span></span><span class="diamond">◆</span><span></span></div>
+        </div>
+
+        <div class="milestones-grid">
+            <!-- Milestone 1 -->
+            <div class="milestone-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="arch-frame milestone">
+                    <img src="images/milestone-1.jpg" alt="Lần đầu gặp nhau" loading="lazy" />
+                    <div class="arch-floral"></div>
+                </div>
+                <h3 class="script-name milestone-title">Lần đầu gặp nhau</h3>
+                <p class="milestone-desc">
+                    Mặt lời chúc phúc và sự hiểu điều của bao trong ngày đặc biệt này
+                    chính là mọn quan và giá với chúng tôi.
+                </p>
+                <div class="milestone-date">
+                    <span>05</span><span class="pipe">|</span>
+                    <span>05</span><span class="pipe">|</span>
+                    <span>2024</span>
+                </div>
+            </div>
+
+            <!-- Milestone 2 -->
+            <div class="milestone-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="arch-frame milestone">
+                    <img src="images/milestone-2.jpg" alt="Chuyến đi đầu tiên" loading="lazy" />
+                    <div class="arch-floral"></div>
+                </div>
+                <h3 class="script-name milestone-title">Chuyến đi đầu tiên</h3>
+                <p class="milestone-desc">
+                    Mặt lời chúc phúc và sự hiểu điều của bao trong ngày đặc biệt này
+                    chính là mọn quan và giá với chúng tôi.
+                </p>
+                <div class="milestone-date">
+                    <span>18</span><span class="pipe">|</span>
+                    <span>05</span><span class="pipe">|</span>
+                    <span>2024</span>
+                </div>
+            </div>
+
+            <!-- Milestone 3 -->
+            <div class="milestone-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="arch-frame milestone">
+                    <img src="images/milestone-3.jpg" alt="Hẹn ước trọn đời" loading="lazy" />
+                    <div class="arch-floral"></div>
+                </div>
+                <h3 class="script-name milestone-title">Hẹn ước trọn đời</h3>
+                <p class="milestone-desc">
+                    Mặt lời chúc phúc và sự hiểu điều của bao trong ngày đặc biệt này
+                    chính là mọn quan và giá với chúng tôi.
+                </p>
+                <div class="milestone-date">
+                    <span>14</span><span class="pipe">|</span>
+                    <span>06</span><span class="pipe">|</span>
+                    <span>2026</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="gold-divider"></div>
+    </section>
+
+    <!-- ========================================================
+       SECTION 7 — EVENTS (Sự kiện)
+  ======================================================== -->
+    <section id="events" class="section section-events">
+        <div class="floral floral-tl"></div>
+        <div class="floral floral-br"></div>
+
+        <div class="container" data-aos="fade-up">
+            <h2 class="script-heading">Sự kiện</h2>
+            <div class="heading-ornament"><span></span><span class="diamond">◆</span><span></span></div>
+        </div>
+
+        <div class="events-timeline" data-aos="fade-up" data-aos-delay="100">
+            <!-- Timeline line -->
+            <div class="timeline-line"></div>
+
+            <!-- Event 1: VU QUY -->
+            <div class="event-item">
+                <div class="event-icon">
+                    <img src="images/icon-ring.png" alt="Vu Quy" onerror="this.innerHTML='💍'" />
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="event-label">VU QUY</div>
+                <div class="event-details">
+                    <p class="event-time">10:00 AM &mdash; 02 | 05 | 2026</p>
+                    <p class="event-location">Thôn Đồng, Xã Nghĩa Giang, Tỉnh Quảng Ngãi</p>
+                    <div class="event-btns">
+                        <a class="btn btn-primary sm"
+                            href="https://maps.google.com/?q=Thôn+Đồng,+Xã+Nghĩa+Giang,+Tỉnh+Quảng+Ngãi" target="_blank"
+                            rel="noopener noreferrer">CHỈ ĐƯỜNG</a>
+                        <button class="btn btn-secondary sm"
+                            onclick="addToCalendar('Vu Quy - Trung Phẩm &amp; Thu Yến','2026-05-02T10:00:00','2026-05-02T12:00:00','Thôn Đồng, Xã Nghĩa Giang, Tỉnh Quảng Ngãi')">
+                            THÊM VÀO LỊCH
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 2: THANH HON -->
+            <div class="event-item">
+                <div class="event-icon">
+                    <img src="images/icon-car.png" alt="Thanh Hon" onerror="this.innerHTML='🚗'" />
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="event-label">THÀNH HÔN</div>
+                <div class="event-details">
+                    <p class="event-time">07:30 AM &mdash; 14 | 06 | 2026</p>
+                    <p class="event-location">Điện Máy Toàn, Xã An Trường, Tỉnh Trà Vinh</p>
+                    <div class="event-btns">
+                        <a class="btn btn-primary sm" href="https://maps.google.com/?q=Xã+An+Trường,+Tỉnh+Trà+Vinh"
+                            target="_blank" rel="noopener noreferrer">CHỈ ĐƯỜNG</a>
+                        <button class="btn btn-secondary sm"
+                            onclick="addToCalendar('Thành Hôn - Trung Phẩm &amp; Thu Yến','2026-06-14T07:30:00','2026-06-14T10:00:00','Điện Máy Toàn, Xã An Trường, Tỉnh Trà Vinh')">
+                            THÊM VÀO LỊCH
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 3: TIEC CUOI -->
+            <div class="event-item">
+                <div class="event-icon">
+                    <img src="images/icon-cake.png" alt="Tiec Cuoi" onerror="this.innerHTML='🎂'" />
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="event-label">TIỆC CƯỚI</div>
+                <div class="event-details">
+                    <p class="event-time">10:00 AM &mdash; 14 | 06 | 2026</p>
+                    <p class="event-location">Điện Máy Toàn, Xã An Trường, Tỉnh Trà Vinh</p>
+                    <div class="event-btns">
+                        <a class="btn btn-primary sm" href="https://maps.google.com/?q=Xã+An+Trường,+Tỉnh+Trà+Vinh"
+                            target="_blank" rel="noopener noreferrer">CHỈ ĐƯỜNG</a>
+                        <button class="btn btn-secondary sm"
+                            onclick="addToCalendar('Tiệc Cưới - Trung Phẩm &amp; Thu Yến','2026-06-14T10:00:00','2026-06-14T14:00:00','Điện Máy Toàn, Xã An Trường, Tỉnh Trà Vinh')">
+                            THÊM VÀO LỊCH
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gold-divider"></div>
+    </section>
+
+    <!-- ========================================================
+       SECTION 8 — GUESTBOOK (Sổ lưu bút)
+  ======================================================== -->
+    <section id="guestbook" class="section section-guestbook">
+        <div class="floral floral-tl"></div>
+        <div class="floral floral-br"></div>
+
+        <div class="container" data-aos="fade-up">
+            <h2 class="script-heading italic">Sổ lưu bút</h2>
+            <div class="heading-ornament"><span></span><span class="diamond">◆</span><span></span></div>
+            <p class="guestbook-subtitle">Hãy để lại lời chúc yêu thương dành cho đôi uyên ương nhé!</p>
+        </div>
+
+        <form id="wish-form" class="wish-form" data-aos="fade-up" data-aos-delay="100" onsubmit="submitWish(event)">
+            <div class="form-group">
+                <input type="text" id="wish-name" name="name" maxlength="160"
+                    placeholder="Tên của bạn (tối đa 160 ký tự) *" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+                <textarea id="wish-message" name="message" maxlength="3000" rows="5"
+                    placeholder="Nhập lời chúc của bạn (tối đa 3000 ký tự) *" required></textarea>
+                <div class="char-count"><span id="char-count">0</span>/3000</div>
+            </div>
+            <button type="submit" class="btn btn-primary">GỬI LỜI CHÚC</button>
+        </form>
+
+        <!-- Wish list -->
+        <div id="wish-list" class="wish-list" data-aos="fade-up" data-aos-delay="200">
+            <!-- Wishes rendered by JS -->
+        </div>
+
+        <div class="gold-divider"></div>
+    </section>
+
+    <!-- ========================================================
+       FOOTER
+  ======================================================== -->
+    <footer class="footer">
+        <div class="floral floral-tl sm"></div>
+        <div class="floral floral-br sm"></div>
+        <h2 class="script-name footer-names">Trung Phẩm <span>&amp;</span> Thu Yến</h2>
+        <p class="footer-date">14 · 06 · 2026</p>
+        <p class="footer-quote italic-text">"Nơi hai trái tim gặp nhau là nơi tình yêu bắt đầu."</p>
+        <p class="footer-copy">&copy; 2026 Trung Phẩm &amp; Thu Yến · Made with ♥</p>
+    </footer>
+
+    <!-- ========================================================
+       RSVP MODAL
+  ======================================================== -->
+    <div id="rsvp-modal" class="modal-overlay" onclick="closeRsvpModal()" role="dialog" aria-modal="true"
+        aria-label="Xác nhận tham dự">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeRsvpModal()" aria-label="Đóng">✕</button>
+            <h3 class="script-heading modal-title">Xác nhận tham dự</h3>
+            <form id="rsvp-form" onsubmit="submitRsvp(event)">
+                <div class="form-group">
+                    <input type="text" id="rsvp-name" name="rsvp-name" maxlength="160" placeholder="Tên của bạn *"
+                        required autocomplete="name" />
+                </div>
+                <div class="form-group">
+                    <select id="rsvp-attending" name="attending" required>
+                        <option value="">-- Bạn có tham dự không? --</option>
+                        <option value="yes">Tôi sẽ tham dự 🎉</option>
+                        <option value="no">Rất tiếc, tôi không thể đến 😢</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="rsvp-guests" name="guests" min="1" max="10"
+                        placeholder="Số người đi cùng (bao gồm bạn)" value="1" required />
+                </div>
+                <button type="submit" class="btn btn-primary full-width">XÁC NHẬN</button>
+            </form>
+            <div id="rsvp-list" class="rsvp-list"><!-- rendered by JS --></div>
+        </div>
+    </div>
+
+    <!-- Back to top -->
+    <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Về đầu trang"
+        aria-label="Về đầu trang">↑</button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
