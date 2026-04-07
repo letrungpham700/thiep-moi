@@ -265,6 +265,13 @@ button {
     white-space: nowrap;
 }
 
+@media (max-width: 480px) {
+    .hero-text .script-name {
+        white-space: normal;
+        font-size: clamp(2.8rem, 10vw, 3.5rem);
+    }
+}
+
 .and-char {
     font-family: 'Great Vibes', cursive;
     font-size: 2.2rem;
@@ -1370,17 +1377,22 @@ button {
     }
 
     .hero-photos {
-        height: 340px;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        padding-bottom: 60px;
     }
 
     .hero-photos .large {
-        width: 220px;
-        height: 290px;
+        width: min(220px, calc(100vw - 120px));
+        height: auto;
+        aspect-ratio: 220 / 290;
     }
 
     .hero-photos .small {
-        width: 130px;
-        height: 165px;
+        width: min(130px, calc(100vw - 200px));
+        height: auto;
+        aspect-ratio: 130 / 165;
         right: 0;
         bottom: -10px;
     }
@@ -1430,22 +1442,43 @@ button {
     }
 
     .arch-frame.portrait {
-        width: 380px;
-        height: 480px;
+        width: min(340px, calc(100vw - 48px));
+        height: auto;
+        aspect-ratio: 340 / 480;
     }
 
     .arch-frame.large {
-        width: 380px;
-        height: 460px;
+        width: min(340px, calc(100vw - 48px));
+        height: auto;
+        aspect-ratio: 340 / 460;
+    }
+
+    .arch-frame.story {
+        width: min(340px, calc(100vw - 48px));
+        height: auto;
+        aspect-ratio: 340 / 440;
+    }
+
+    .arch-frame.milestone {
+        width: min(240px, calc(100vw - 80px));
+        height: auto;
+        aspect-ratio: 240 / 290;
     }
 
     .arch-frame.small {
-        width: 130px;
-        height: 162px;
+        width: 120px;
+        height: 150px;
     }
 
     .couple-grid {
         gap: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .couple-heart {
+        order: 2;
+        padding: 4px 0;
     }
 
     #nav-dots {
