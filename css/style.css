@@ -178,20 +178,20 @@ button {
 .arch-frame {
     position: relative;
     overflow: hidden;
-    border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+    border-radius: 32% 32% 0 0 / 40% 40% 0 0;
     border: 2.5px solid var(--red-light);
     box-shadow: 0 8px 32px var(--shadow);
     background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
 }
 
 .arch-frame.large {
-    width: 320px;
-    height: 420px;
+    width: 520px;
+    height: 620px;
 }
 
 .arch-frame.small {
-    width: 190px;
-    height: 230px;
+    width: 220px;
+    height: 320px;
 }
 
 .arch-frame.portrait {
@@ -217,7 +217,7 @@ button {
     content: '';
     position: absolute;
     inset: 8px;
-    border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+    border-radius: 32% 32% 0 0 / 40% 40% 0 0;
     border: 1.5px solid rgba(139, 52, 36, 0.25);
     pointer-events: none;
 }
@@ -262,6 +262,7 @@ button {
 
 .hero-text .script-name {
     font-size: clamp(3.5rem, 6vw, 5.5rem);
+    white-space: nowrap;
 }
 
 .and-char {
@@ -273,7 +274,7 @@ button {
 
 .hero-date {
     margin-top: 2rem;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Coiny', serif;
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 300;
     color: var(--red-light);
@@ -331,7 +332,7 @@ button {
 }
 
 .band-time {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Great Vibes', serif;
     font-size: 1.5rem;
     font-weight: 500;
     color: var(--red);
@@ -339,7 +340,7 @@ button {
 }
 
 .band-date {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Great Vibes', cursive;
     font-size: clamp(3rem, 7vw, 5.5rem);
     font-weight: 300;
     color: var(--red);
@@ -375,7 +376,7 @@ button {
 
 .count-box span {
     display: block;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Great Vibes', cursive;
     font-size: 2.2rem;
     font-weight: 600;
     color: var(--red);
@@ -434,7 +435,7 @@ button {
     justify-content: center;
     padding: 14px 36px;
     border-radius: 50px;
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -514,6 +515,34 @@ button {
 .couple-heart {
     text-align: center;
     align-self: center;
+}
+
+/* Couple portrait zoom-on-click */
+.couple-zoomable {
+    cursor: zoom-in;
+}
+
+.couple-zoomable img {
+    transition: transform 0.4s ease;
+}
+
+.couple-zoomable:hover img {
+    transform: scale(1.04);
+}
+
+.couple-zoom-hint {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+}
+
+.couple-zoomable:hover .couple-zoom-hint {
+    opacity: 1;
 }
 
 .heart-icon {
@@ -792,7 +821,7 @@ button {
 }
 
 .milestone-date {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Great Vibes', cursive;
     font-size: 1.6rem;
     font-weight: 300;
     color: var(--red-light);
@@ -896,7 +925,7 @@ button {
 }
 
 .event-time {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Great Vibes', cursive;
     font-size: 1rem;
     color: var(--text);
     font-weight: 500;
@@ -1367,8 +1396,8 @@ button {
     }
 
     .arch-frame.story {
-        width: 280px;
-        height: 360px;
+        width: 480px;
+        height: 560px;
     }
 
     .milestones-grid {
@@ -1401,13 +1430,13 @@ button {
     }
 
     .arch-frame.portrait {
-        width: 220px;
-        height: 300px;
+        width: 380px;
+        height: 480px;
     }
 
     .arch-frame.large {
-        width: 220px;
-        height: 290px;
+        width: 380px;
+        height: 460px;
     }
 
     .arch-frame.small {

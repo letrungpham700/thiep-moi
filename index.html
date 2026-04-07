@@ -28,7 +28,7 @@
     <div id="music-btn" title="Nhạc nền" onclick="toggleMusic()">♪</div>
     <audio id="bg-music" loop>
         <!-- Thêm file nhạc vào: audio/wedding.mp3 -->
-        <source src="audio/wedding.mp3" type="audio/mpeg" />
+        <source src="audio/emdongy(ido).mp3" type="audio/mpeg" />
     </audio>
 
     <!-- ========================================================
@@ -105,7 +105,7 @@
                 <span>06</span><span class="pipe">|</span>
                 <span>2026</span>
             </div>
-            <p class="band-location">Điện Máy Toàn, Xã An Trường, Tỉnh Trà Vinh</p>
+            <p class="band-location">Điện Máy Toàn, Ấp Ninh Bình, Xã An Trường, Tỉnh Trà Vinh</p>
 
             <!-- Countdown -->
             <div id="countdown" class="countdown">
@@ -123,7 +123,9 @@
             <p class="invite-honor">Sự hiện diện của bạn là niềm vinh dự của chúng tôi!</p>
             <div class="btn-group">
                 <button class="btn btn-primary" onclick="scrollToGuestbook()">GỬI LỜI CHÚC</button>
-                <button class="btn btn-secondary" onclick="openRsvpModal()">XÁC NHẬN THAM DỰ</button>
+                <a class="btn btn-secondary"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScZd7bx9r4XD9X8K5eo2xwGpw8SV97c3ndJ3_qPUk7qVTBkYA/viewform?usp=sharing&ouid=114708734022415898008"
+                    target="_blank" rel="noopener noreferrer">XÁC NHẬN THAM DỰ</a>
             </div>
         </div>
 
@@ -140,8 +142,10 @@
         <div class="couple-grid">
             <!-- Groom -->
             <div class="couple-card" data-aos="fade-right" data-aos-duration="900">
-                <div class="arch-frame portrait">
+                <div class="arch-frame portrait couple-zoomable"
+                    onclick="openCoupleLightbox('images/groom.jpg','Chú rể Trung Phẩm')">
                     <img src="images/groom.jpg" alt="Chú rể Trung Phẩm" />
+                    <div class="couple-zoom-hint">🔍</div>
                 </div>
                 <p class="couple-role">Chú rể</p>
                 <h3 class="script-name couple-name">Trung Phẩm</h3>
@@ -154,8 +158,10 @@
 
             <!-- Bride -->
             <div class="couple-card" data-aos="fade-left" data-aos-duration="900">
-                <div class="arch-frame portrait">
+                <div class="arch-frame portrait couple-zoomable"
+                    onclick="openCoupleLightbox('images/bride.jpg','Cô dâu Thu Yến')">
                     <img src="images/bride.jpg" alt="Cô dâu Thu Yến" />
+                    <div class="couple-zoom-hint">🔍</div>
                 </div>
                 <p class="couple-role">Cô dâu</p>
                 <h3 class="script-name couple-name">Thu Yến</h3>
@@ -197,6 +203,14 @@
             </div>
             <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="images/album-6.jpg" alt="Ảnh cưới 6" loading="lazy" />
+                <div class="gallery-overlay"><span>🔍</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/album-7.jpg" alt="Ảnh cưới 7" loading="lazy" />
+                <div class="gallery-overlay"><span>🔍</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="images/album-8.jpg" alt="Ảnh cưới 8" loading="lazy" />
                 <div class="gallery-overlay"><span>🔍</span></div>
             </div>
         </div>
@@ -263,7 +277,7 @@
                 </div>
                 <h3 class="script-name milestone-title">Lần đầu gặp nhau</h3>
                 <p class="milestone-desc">
-                    Mặt lời chúc phúc và sự hiểu điều của bao trong ngày đặc biệt này
+                    Một lời chúc phúc và sự hiểu điều của bao trong ngày đặc biệt này
                     chính là mọn quan và giá với chúng tôi.
                 </p>
                 <div class="milestone-date">
@@ -281,7 +295,7 @@
                 </div>
                 <h3 class="script-name milestone-title">Chuyến đi đầu tiên</h3>
                 <p class="milestone-desc">
-                    Mặt lời chúc phúc và sự hiểu điều của bao trong ngày đặc biệt này
+                    Một lời chúc phúc và sự hiểu điều của bao trong ngày đặc biệt này
                     chính là mọn quan và giá với chúng tôi.
                 </p>
                 <div class="milestone-date">
@@ -299,7 +313,7 @@
                 </div>
                 <h3 class="script-name milestone-title">Hẹn ước trọn đời</h3>
                 <p class="milestone-desc">
-                    Mặt lời chúc phúc và sự hiểu điều của bao trong ngày đặc biệt này
+                    Một lời chúc phúc và sự hiểu điều của bao trong ngày đặc biệt này
                     chính là mọn quan và giá với chúng tôi.
                 </p>
                 <div class="milestone-date">
@@ -337,11 +351,10 @@
                 <div class="timeline-dot"></div>
                 <div class="event-label">VU QUY</div>
                 <div class="event-details">
-                    <p class="event-time">10:00 AM &mdash; 02 | 05 | 2026</p>
+                    <p class="event-time">10:00 am &mdash; 02 | 05 | 2026</p>
                     <p class="event-location">Thôn Đồng, Xã Nghĩa Giang, Tỉnh Quảng Ngãi</p>
                     <div class="event-btns">
-                        <a class="btn btn-primary sm"
-                            href="https://maps.google.com/?q=Thôn+Đồng,+Xã+Nghĩa+Giang,+Tỉnh+Quảng+Ngãi" target="_blank"
+                        <a class="btn btn-primary sm" href="https://maps.app.goo.gl/12m3LJBSxe884Shz6" target="_blank"
                             rel="noopener noreferrer">CHỈ ĐƯỜNG</a>
                         <button class="btn btn-secondary sm"
                             onclick="addToCalendar('Vu Quy - Trung Phẩm &amp; Thu Yến','2026-05-02T10:00:00','2026-05-02T12:00:00','Thôn Đồng, Xã Nghĩa Giang, Tỉnh Quảng Ngãi')">
@@ -359,13 +372,13 @@
                 <div class="timeline-dot"></div>
                 <div class="event-label">THÀNH HÔN</div>
                 <div class="event-details">
-                    <p class="event-time">07:30 AM &mdash; 14 | 06 | 2026</p>
-                    <p class="event-location">Điện Máy Toàn, Xã An Trường, Tỉnh Trà Vinh</p>
+                    <p class="event-time">07:30 am &mdash; 14 | 06 | 2026</p>
+                    <p class="event-location">Ấp Ninh Bình, Xã An Trường, Tỉnh Trà Vinh</p>
                     <div class="event-btns">
-                        <a class="btn btn-primary sm" href="https://maps.google.com/?q=Xã+An+Trường,+Tỉnh+Trà+Vinh"
-                            target="_blank" rel="noopener noreferrer">CHỈ ĐƯỜNG</a>
+                        <a class="btn btn-primary sm" href="https://maps.app.goo.gl/4QvpLGxbaMuRpdPV6" target="_blank"
+                            rel="noopener noreferrer">CHỈ ĐƯỜNG</a>
                         <button class="btn btn-secondary sm"
-                            onclick="addToCalendar('Thành Hôn - Trung Phẩm &amp; Thu Yến','2026-06-14T07:30:00','2026-06-14T10:00:00','Điện Máy Toàn, Xã An Trường, Tỉnh Trà Vinh')">
+                            onclick="addToCalendar('Thành Hôn - Trung Phẩm &amp; Thu Yến','2026-06-14T07:30:00','2026-06-14T10:00:00','Điện Máy Toàn, Ấp Ninh Bình, Xã An Trường, Tỉnh Trà Vinh')">
                             THÊM VÀO LỊCH
                         </button>
                     </div>
@@ -380,13 +393,13 @@
                 <div class="timeline-dot"></div>
                 <div class="event-label">TIỆC CƯỚI</div>
                 <div class="event-details">
-                    <p class="event-time">10:00 AM &mdash; 14 | 06 | 2026</p>
-                    <p class="event-location">Điện Máy Toàn, Xã An Trường, Tỉnh Trà Vinh</p>
+                    <p class="event-time">10:00 am &mdash; 14 | 06 | 2026</p>
+                    <p class="event-location">Ấp Ninh Bình, Xã An Trường, Tỉnh Trà Vinh</p>
                     <div class="event-btns">
-                        <a class="btn btn-primary sm" href="https://maps.google.com/?q=Xã+An+Trường,+Tỉnh+Trà+Vinh"
-                            target="_blank" rel="noopener noreferrer">CHỈ ĐƯỜNG</a>
+                        <a class="btn btn-primary sm" href="https://maps.app.goo.gl/4QvpLGxbaMuRpdPV6" target="_blank"
+                            rel="noopener noreferrer">CHỈ ĐƯỜNG</a>
                         <button class="btn btn-secondary sm"
-                            onclick="addToCalendar('Tiệc Cưới - Trung Phẩm &amp; Thu Yến','2026-06-14T10:00:00','2026-06-14T14:00:00','Điện Máy Toàn, Xã An Trường, Tỉnh Trà Vinh')">
+                            onclick="addToCalendar('Tiệc Cưới - Trung Phẩm &amp; Thu Yến','2026-06-14T10:00:00','2026-06-14T14:00:00','Điện Máy Toàn, Ấp Ninh Bình, Xã An Trường, Tỉnh Trà Vinh')">
                             THÊM VÀO LỊCH
                         </button>
                     </div>

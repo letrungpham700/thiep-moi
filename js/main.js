@@ -122,6 +122,19 @@ function closeLightbox() {
     document.body.style.overflow = '';
 }
 
+// Open lightbox for a single image (couple portraits)
+function openCoupleLightbox(src, alt) {
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    if (!lb || !img) return;
+    lightboxImages = [{ src, alt }];
+    lightboxCurrent = 0;
+    img.src = src;
+    img.alt = alt || '';
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
 // Keyboard navigation
 document.addEventListener('keydown', e => {
     const lb = document.getElementById('lightbox');
@@ -132,26 +145,50 @@ document.addEventListener('keydown', e => {
 });
 
 /* ===============================================================
-   GUESTBOOK — store in localStorage
+   GUESTBOOK — lưu trữ qua JSONBin.io
+   Hướng dẫn setup:
+   1. Đăng ký miễn phí tại https://jsonbin.io
+   2. Vào "Bins" → Create New Bin, nội dung: {"wishes":[]}
+   3. Copy BIN_ID (chuỗi dài trong URL) và Master Key
+   4. Điền vào JSONBIN_BIN_ID và JSONBIN_API_KEY bên dưới
 =============================================================== */
-const WISH_KEY = 'wedding_wishes_tp_ty_2026';
+const JSONBIN_BIN_ID = '69d48d02856a68218907f3c7';   // ← điền vào đây
+const JSONBIN_API_KEY = '$2a$10$RNY0FQht13zOznymwXygFu//dYtP4w3mZUvUpKdDKScY5KTO7s5zS'; // ← điền vào đây
+const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
 
-function loadWishes() {
+async function loadWishes() {
     try {
-        return JSON.parse(localStorage.getItem(WISH_KEY) || '[]');
+        const res = await fetch(`${JSONBIN_URL}/latest`, {
+            headers: { 'X-Master-Key': JSONBIN_API_KEY }
+        });
+        if (!res.ok) return [];
+        const data = await res.json();
+        return Array.isArray(data.record?.wishes) ? data.record.wishes : [];
     } catch {
         return [];
     }
 }
 
-function saveWishes(wishes) {
-    localStorage.setItem(WISH_KEY, JSON.stringify(wishes));
+async function saveWishes(newWish) {
+    const wishes = await loadWishes();
+    wishes.push(newWish);
+    await fetch(JSONBIN_URL, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Master-Key': JSONBIN_API_KEY
+        },
+        body: JSON.stringify({ wishes })
+    });
+    return wishes;
 }
 
-function renderWishes() {
+async function renderWishes() {
     const list = document.getElementById('wish-list');
     if (!list) return;
-    const wishes = loadWishes();
+
+    list.innerHTML = '<p class="no-wishes italic-text">Đang tải lời chúc... 💕</p>';
+    const wishes = await loadWishes();
 
     if (wishes.length === 0) {
         list.innerHTML = '<p class="no-wishes">Chưa có lời chúc nào. Hãy là người đầu tiên! 💕</p>';
@@ -167,7 +204,7 @@ function renderWishes() {
   `).join('');
 }
 
-function submitWish(e) {
+async function submitWish(e) {
     e.preventDefault();
     const nameEl = document.getElementById('wish-name');
     const msgEl = document.getElementById('wish-message');
@@ -177,18 +214,15 @@ function submitWish(e) {
     const message = msgEl.value.trim();
     if (!name || !message) return;
 
-    const wishes = loadWishes();
-    wishes.push({
-        name,
-        message,
-        time: formatDate(new Date())
-    });
-    saveWishes(wishes);
-    renderWishes();
+    const btn = e.target.querySelector('[type="submit"]');
+    if (btn) { btn.disabled = true; btn.textContent = 'Đang gửi...'; }
 
-    // Reset form
+    await saveWishes({ name, message, time: formatDate(new Date()) });
+    await renderWishes();
+
     document.getElementById('wish-form').reset();
     document.getElementById('char-count').textContent = '0';
+    if (btn) { btn.disabled = false; btn.textContent = 'GỬI LỜI CHÚC'; }
 
     showToast('🎉 Lời chúc của bạn đã được gửi!');
 }
@@ -384,3 +418,28 @@ window.addEventListener('load', () => {
     document.body.style.transition = 'opacity 0.6s ease';
     requestAnimationFrame(() => { document.body.style.opacity = '1'; });
 });
+
+/* ── Auto-play music on first user interaction ───────────── */
+// Browsers block autoplay until user interacts with the page.
+// Try immediately on load; if blocked, retry on first gesture.
+function startMusic() {
+    if (!bgMusic || musicPlaying) return;
+    bgMusic.play().then(() => {
+        musicPlaying = true;
+        if (musicBtn) musicBtn.classList.add('playing');
+        // Success → remove all retry listeners
+        ['click', 'touchstart', 'keydown', 'scroll'].forEach(ev =>
+            document.removeEventListener(ev, startMusic)
+        );
+    }).catch(() => {
+        // Failed (blocked or file missing) → keep listeners to retry on next gesture
+    });
+}
+
+// Try immediately (works on some browsers / return visits)
+window.addEventListener('load', () => startMusic());
+
+// Fallback: retry on first user gesture
+['click', 'touchstart', 'keydown', 'scroll'].forEach(ev =>
+    document.addEventListener(ev, startMusic, { passive: true })
+);
