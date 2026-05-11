@@ -1,5 +1,5 @@
 /* ============================================================
-   WEDDING INVITATION — js/main.js
+   WEDDING INVITATION
    Trung Phẩm & Thu Yến · 14/06/2026
    ============================================================ */
 
@@ -146,14 +146,9 @@ document.addEventListener('keydown', e => {
 
 /* ===============================================================
    GUESTBOOK — lưu trữ qua JSONBin.io
-   Hướng dẫn setup:
-   1. Đăng ký miễn phí tại https://jsonbin.io
-   2. Vào "Bins" → Create New Bin, nội dung: {"wishes":[]}
-   3. Copy BIN_ID (chuỗi dài trong URL) và Master Key
-   4. Điền vào JSONBIN_BIN_ID và JSONBIN_API_KEY bên dưới
 =============================================================== */
-const JSONBIN_BIN_ID = '69d48d02856a68218907f3c7';   // ← điền vào đây
-const JSONBIN_API_KEY = '$2a$10$RNY0FQht13zOznymwXygFu//dYtP4w3mZUvUpKdDKScY5KTO7s5zS'; // ← điền vào đây
+const JSONBIN_BIN_ID = '69d48d02856a68218907f3c7';
+const JSONBIN_API_KEY = '$2a$10$RNY0FQht13zOznymwXygFu//dYtP4w3mZUvUpKdDKScY5KTO7s5zS';
 const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
 
 async function loadWishes() {
